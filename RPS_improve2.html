@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html> 
+
+
+
+<head>
+    <title>RockPaperScisors</title>
+
+
+<style>
+   body{
+    background-color: rgb(25,25,25);
+    color:white;
+    font-family: Arial;
+   }
+
+   /*we added class to the body paragraph with the title .to manipulate it,. */
+   .title{
+    font-size: 30px;
+    font-weight:bold;
+   }
+
+
+   /*
+   inside the button we can add <img> to  put an image in the button. the image will be clickable just like a button. 
+   we use src = ""  in order to give a link for an image. 
+   we added a class for CSS it has to inside the image tag. 
+   .move-icon in the img tag to manipulate all image: 
+   */
+   .move-icon{
+    height: 50px;
+    
+   }
+
+   /*
+   .move-button inside the button tag to edit all buttons together. 
+   its an image of a hand with white background. that is why nothing seems to change at first. 
+   make it transparent and change border
+
+   border-radius changes the border arch . 
+   make it half of the height and width to make it round shape. 
+
+   margin add space outside. 
+   margin-right: adds space to the right. outside of the element. so all buttons individually will move to the 10 px from the button on the left side. 
+
+   */
+
+   .move-button{
+    background-color: transparent;
+    border: 3px solid white;
+    width:120px;
+    height:120px;
+    border-radius: 60px; 
+    margin-right: 10px;
+    cursor:pointer;
+   }
+
+   /*result class added after the js- classes on the paragraph inside the body*/
+   .result{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 50px;
+   }
+
+   /* We wanted to move the score paragragh lower. so we added a class score to the button itself. with th js-class.
+   margin added space outside to the top side.  */
+   .score{
+    margin-top:60px;
+   }
+
+   /* reset score button CSS*/
+   .reset-score-button{
+    background-color: white;
+    border: none;
+    font-size: 15px;
+    padding: 8px 15px;
+    cursor:pointer;
+   }
+
+</style>
+        
+</head>
+
+
+
+<body>
+<p class ="title" >Rock Paper Scisors</p>
+<button onclick="numberGenerator(event)" class="move-button"  name = "Rock"   ><img src = "Rock-emoji.png" class = "move-icon"></button>
+<button onclick="numberGenerator(event)" class="move-button" name = "Paper"  ><img src = "Paper-emoji.png" class = "move-icon"></button>
+<button onclick="numberGenerator(event)" class="move-button" name = "Scisors"><img src = "Scissors-emoji.png" class = "move-icon"></button>
+
+<p class ="js-result result"></p>
+<p class ="js-moves"></p>
+<p class="js-score score"></p>
+
+<button onclick = "resetScore()"         class="reset-score-button" name = "reset"  >Reset Score</button>
+
+
+</body>
+
+
+<script>
+   
+    let scoreCard = (JSON.parse(localStorage.getItem('score'))); // i need to convert it to original object again to access everything
+
+    if (scoreCard === null){    //when we refresh the page, the previous score goes away. it shows an error when there is nothing there. 
+        scoreCard ={            //thats why we are setting a default value
+            wins:0,
+            lost:0,
+            tie:0
+        }
+    }
+    function updateScore(){
+        document.querySelector('.js-score').innerHTML = `Win: ${scoreCard.wins}, Lost: ${scoreCard.lost}, Tie: ${scoreCard.tie}`;}                      //updating the score card
+    
+    function updateResult(result){
+        document.querySelector('.js-result').innerHTML = result;
+    }
+    function updateMoves(button, computer){
+        document.querySelector('.js-moves').innerHTML = `You <img src = "${button}-emoji.png" class = "move-icon"> <img src = "${computer}-emoji.png" class = "move-icon"> computer`;
+    }
+
+    
+    function numberGenerator(event){
+
+        localStorage.removeItem('score');
+        const randomNumber=Math.random();
+
+        let computer = '';
+        let button = event.target.name;
+        let result = '';
+
+        if (randomNumber >= 0 &&  randomNumber < 0.33) { computer='Rock';
+        }else if (randomNumber >= 0.33 & randomNumber <0.67 ){
+            computer='Paper';
+        }else{
+            computer='Scisors';
+        }    
+
+        if (computer === 'Rock' && button === 'Rock'){
+            result = 'Tie';
+        }else if (computer === 'Paper' && button === 'Scisors'){
+            result = 'You Win!';
+        }else if  (computer==='Scisors' && button==='Rock'){
+            result = 'you Win!';
+        }else if (computer === 'Paper' && button ==='Paper'){
+            result = 'Tie';
+        }else if (computer === 'Scisors' && button === 'Scisors'){
+            result = 'Tie';
+        }else if (computer === 'Rock' && button === 'Paper'){
+            result = 'You Win!';
+        }else{result = 'You lose!'}
+
+        if (result === 'Tie'){
+            scoreCard.tie++;
+           //scoreCard.tie = scoreCard.tie +1;
+            //scoreCard.tie +=1;
+        }else if (result === 'You Win!'){
+            scoreCard.wins++;
+            //scoreCard.wins = scoreCard.wins+1;
+            //  scoreCard.wins +=1;
+        }else{
+            scoreCard.lost++ ;
+            //scoreCard.lost = scoreCard.lost +1;
+            //scoreCard.lost+=1;
+        }
+
+        localStorage.setItem('score', JSON.stringify(scoreCard)); //here the first string is something we add for reference. something like a parameter. after the comma we input whtat we want to save. 
+        //we are stroing a object. but local storage only takes string. this is why we convert the object first.
+
+        updateResult(result);            //i had to pass the value for this to work
+        updateMoves(button, computer);   //we could simply used the document.querySelector by itself thou       
+        updateScore(); //we update it here. think about it. we are saving the score here, this is the ,main function where everything is happening. 
+
+
+        alert (`you picked ${button} computer picked ${computer}. So ${result}\n
+        Score Card = Win: ${scoreCard.wins}, Lost: ${scoreCard.lost}, Tie: ${scoreCard.tie}`);
+        //remeber it is ` not ' ' when you are using ${}
+        
+    }
+
+    function resetScore(){
+        scoreCard.wins = 0;
+        scoreCard.lost = 0;
+        scoreCard.tie = 0;
+        updateScore();
+        alert(`The scores have been Reset.
+        Score Card = Win: ${scoreCard.wins}, Lost: ${scoreCard.lost}, Tie: ${scoreCard.tie}`);
+    }
+
+    
+
+</script>
+
+
+
+
+</html>

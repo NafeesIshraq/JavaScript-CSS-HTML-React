@@ -1,0 +1,79 @@
+<!DOCTYPE>
+<html>
+    <style>
+
+    </style>
+    <head>
+        <title>DOM exercise</title>
+
+    </head>
+
+
+    <body> 
+        
+        <button>Hello</button>
+        <button class = 'button2'>second button</button> 
+
+    <script>
+
+
+
+        //to select any elementfrom the page. not just the whole body.
+        //the string is to let the querySelector know what to pick 
+
+        document.querySelector('button'); //if we dont specify, it selects the first button. so if we write body, it gets the first body of the html file. which is same as writing document.body. 
+        console.log(document.querySelector('button'));
+
+
+        //with querySelector we can sleelct any element inside the html file. 
+        //then we can  manipulate it using .notation 
+
+        console.log(document.querySelector('button').innerHTML);  //innerHTML selects the text inside an element. 
+        //here querySelector selects the button and innerHTML selects the button text. 
+
+        //we can also change the text 
+        document.querySelector('button'). innerHTML = 'changed'
+        console.log(document.querySelector('button').innerHTML);
+
+
+        //now if we have two buttons?
+        //querySelector only gets the first one. 
+        console.log(document.querySelector('.button2').innerHTML); 
+        //notice we used CSS syntax to select class. .className
+
+        const Variable1 = document.querySelector('.button2').innerHTML; 
+        console.log(Variable1);
+
+        /*
+
+
+
+        //document is built in object. with . notation we write body. that means we are  accessing the property of document called body 
+        //document.body.innerHTML = 'hello'; //this removes everything on the page and prints hello. 
+        //document.title = 'GOOD JOB!'; //changes the title. //document object accessing title property. 
+        //documet object is linked to the webpage
+        
+        console.log(document.title);
+        document.title = 'changed';
+
+        console.log(document.body);  //this is ;iterally the html body inside the console. 
+        //this means we can have html code inside javascript
+        //body will work as a object, meaning it will have methods like anyother object. 
+        console.log(typeof document.body);
+
+        console.log(document.body.innerHTML); //gives all hte html i wrote in the console. just check. it is funny. 
+        //here we are displaying every html inside the body. the whole body html comes up as text in the console.
+
+        //if we change innerHTML it will obviously change teh html inside the body. iinerHTML basically gives us control all html inside body/ 
+        document.body.innerHTML = '<button>Good Job!</button>';
+        
+        
+        */
+        
+    </script>
+
+
+
+    </body>
+
+</html>

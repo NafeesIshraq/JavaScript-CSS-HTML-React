@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html> 
+
+<style>
+   
+
+</style>
+    
+
+<head>
+    <title>RockPaperScisors</title>
+    
+</head>
+
+
+
+<body>
+<p>Rock Paper Scisors</p>
+<button onclick="numberGenerator(event)" class="button"  name = "Rock"   >Rock</button>
+<button onclick="numberGenerator(event)" class="button2" name = "Paper"  >Paper</button>
+<button onclick="numberGenerator(event)" class="button3" name = "Scisors">Scisors</button>
+
+<p class ="js-result"></p>
+<p class ="js-moves"></p>
+<p class="js-score"></p>
+
+<button onclick = "resetScore()"         class="button4" name = "reset"  >Reset</button>
+
+
+</body>
+
+
+<script>
+   
+    let scoreCard = (JSON.parse(localStorage.getItem('score'))); // i need to convert it to original object again to access everything
+
+    if (scoreCard === null){    //when we refresh the page, the previous score goes away. it shows an error when there is nothing there. 
+        scoreCard ={            //thats why we are setting a default value
+            wins:0,
+            lost:0,
+            tie:0
+        }
+    }
+    function updateScore(){
+        document.querySelector('.js-score').innerHTML = `Win: ${scoreCard.wins}, Lost: ${scoreCard.lost}, Tie: ${scoreCard.tie}`;}                      //updating the score card
+    
+    function updateResult(result){
+        document.querySelector('.js-result').innerHTML = result;
+    }
+    function updateMoves(button, computer){
+        document.querySelector('.js-moves').innerHTML = `you picked ${button} computer picked ${computer}`;
+    }
+
+    
+    function numberGenerator(event){
+
+        localStorage.removeItem('score');
+        const randomNumber=Math.random();
+
+        let computer = '';
+        let button = event.target.name;
+        let result = '';
+
+        if (randomNumber >= 0 &&  randomNumber < 0.33) { computer='Rock';
+        }else if (randomNumber >= 0.33 & randomNumber <0.67 ){
+            computer='Paper';
+        }else{
+            computer='Scisors';
+        }    
+
+        if (computer === 'Rock' && button === 'Rock'){
+            result = 'Tie';
+        }else if (computer === 'Paper' && button === 'Scisors'){
+            result = 'You Win!';
+        }else if  (computer==='Scisors' && button==='Rock'){
+            result = 'you Win!';
+        }else if (computer === 'Paper' && button ==='Paper'){
+            result = 'Tie';
+        }else if (computer === 'Scisors' && button === 'Scisors'){
+            result = 'Tie';
+        }else if (computer === 'Rock' && button === 'Paper'){
+            result = 'You Win!';
+        }else{result = 'You lose!'}
+
+        if (result === 'Tie'){
+            scoreCard.tie++;
+           //scoreCard.tie = scoreCard.tie +1;
+            //scoreCard.tie +=1;
+        }else if (result === 'You Win!'){
+            scoreCard.wins++;
+            //scoreCard.wins = scoreCard.wins+1;
+            //  scoreCard.wins +=1;
+        }else{
+            scoreCard.lost++ ;
+            //scoreCard.lost = scoreCard.lost +1;
+            //scoreCard.lost+=1;
+        }
+
+        localStorage.setItem('score', JSON.stringify(scoreCard)); //here the first string is something we add for reference. something like a parameter. after the comma we input whtat we want to save. 
+        //we are stroing a object. but local storage only takes string. this is why we convert the object first.
+
+        updateResult(result);            //i had to pass the value for this to work
+        updateMoves(button, computer);   //we could simply used the document.querySelector by itself thou       
+        updateScore(); //we update it here. think about it. we are saving the score here, this is the ,main function where everything is happening. 
+
+
+        alert (`you picked ${button} computer picked ${computer}. So ${result}\n
+        Score Card = Win: ${scoreCard.wins}, Lost: ${scoreCard.lost}, Tie: ${scoreCard.tie}`);
+        //remeber it is ` not ' ' when you are using ${}
+        
+    }
+
+    function resetScore(){
+        scoreCard.wins = 0;
+        scoreCard.lost = 0;
+        scoreCard.tie = 0;
+        updateScore();
+        alert(`The scores have been Reset.
+        Score Card = Win: ${scoreCard.wins}, Lost: ${scoreCard.lost}, Tie: ${scoreCard.tie}`);
+    }
+
+    
+
+</script>
+
+
+
+
+</html>
