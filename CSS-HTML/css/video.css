@@ -1,0 +1,172 @@
+
+
+
+p{ /* incase for some reason this font fails, we will load up ARIAL instead. */
+    font-family: Roboto, Arial; /*we load roboto in the head section. but we still need to setup roboto in the css*/
+    margin-top:0;
+    margin-bottom:0;
+}
+
+
+body{
+    margin:0;
+
+    /*Add padding at the top. top bring the elements  down to make space for the header
+    remember PADDING adds space INSIDE and margine does OUTSIDE>*/
+    padding-top:80px;
+
+    padding-left: 100px;
+    padding-right: 24px;
+
+    background-color: rgb(250, 248, 248);
+
+    /*inheritance*/
+    /*Certain properties set on the outer element gets passed to the inner elements automatically
+    This is called inharitance*/
+    font-family:Roboto,Arial;
+
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.thumbnails{
+    width:100%;      
+}
+/* Inline block elements only take as much space is needed, if we want two paragraphs to appear side by side, we use inline block. beacause paragraphs by default are block elements. 
+images and text boxes are inline box elements. so they appear side by side. 
+        .video-author, .video-stats{
+            display:inline-block;
+        }*/
+
+/* But in our case we want the text box and the image to be block elements. so that they dont appear side by side. 
+This is why we are converting the inline block elements to block elements. */
+
+        
+.video-grid{
+    display:grid;   /* makes it a grid container. */
+    grid-template-columns: 1fr 1fr 1fr;  /* creates three columns that take equal space on screen. */
+    column-gap: 16px;
+    row-gap: 40px;
+
+
+    /*Certain properties set on the outer element gets passed to the inner elements automatically
+    This is called inharitance*/
+    /*text-decoration:underline;*/
+    /* Buto some properties wont be passed down like */
+    /*border: 2px solid black; */
+}
+
+
+
+
+/*
+.video-preview{
+     width:300px;
+    display:inline-block; converts it into a in block element - so that i can put anothe rdiv beside it. 
+    vertical-align: top; will align the elements on the top border. 
+    
+}*/
+
+
+.video-info-grid{
+    display:grid;
+    grid-template-columns: 50px 1fr;
+}
+
+/*we want a horizontal layout for video info and channel picture. so we are making them both inline-blocks*/
+/*.channel-picture{
+  display:inline-block; 
+    width:50px; 
+    vertical-align:top; /*to bring the picture align with top of the container border
+}
+*/
+
+.profile-picture{
+    width:36px;
+    border-radius:50px;   /*this will make it circular*/
+}
+
+.video-title{
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height:20px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+.video-author, .video-stats{
+    font-size:12px;
+    color: rgb(96,96,96);    /*rgb is used instead of hex because it's shorter and easier to read.*/
+}
+
+.video-author{
+    margin-bottom:4px;
+}
+
+
+.thumbnail-row{
+    margin-bottom:8px; /*I am adding some space underneath the thumbnail picture.*/
+
+    position:relative;    
+    }/*This property allows us to use absolute positioning on its child elements
+                            we need this to position the time stamp for videos. 
+                            it will be an absolute position element inside a relative position
+                            so that it does not scroll with the page and stays inside the containers*/
+
+
+.video-time{
+    background-color:black;
+    color:white;
+
+    position: absolute;
+    bottom:8px;
+    right:5px;
+
+    font-family: Roboto,Arial;
+    font-size: 12px;
+    font-weight: 500;
+    padding-left:4px;
+    padding-right:4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 2px;
+}
+
+
+
+/*********** Media Queries ********/
+
+@media(max-width:800px){
+    .video-grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(min-width:1200px){
+    .video-grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+
+

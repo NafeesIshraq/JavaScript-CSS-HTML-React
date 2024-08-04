@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>CSS Position Practice and Syntax</title>
+
+
+
+    <style>
+
+        /* add padding to the body to add space inside the body. this will bring the body contents down 
+        from the header*/
+
+
+    </style>
+
+    </head>
+
+    <body style="height:5000px; padding-top: 60px; padding-left:70px;">
+
+        
+        
+        <div style="background-color:black; color:white;
+                    position:fixed; top:0; left:0; right:0px;
+                    height:50px; z-index:1000;">Header</div>
+
+
+        <div style="background-color:greenyellow; position:fixed; left:0;
+                    bottom:0; top:50px; width:60px;">Sidebar</div>
+
+        <div style="background-color:red; color:white; position:absolute;
+                    left:5px; top: 20px;">absolute</div>
+
+
+
+        <div style="background-color:lightblue; height:200px; width:200px; position:static;
+                    ">div1</div>
+        <div style="background-color:lightpink; height:200px; width:200px;">div2</div>
+
+
+        <div style="background-color:lightblue; height:200px; width:200px; position:relative;
+                    ">
+                    absolute inside relative
+                    <div style="background-color:black; color:  white; position:absolute;
+                    bottom:10px; right:10px;">
+                    5:00
+                    </div>        
+        </div>
+        
+
+    
+    </body>
+
+</html>

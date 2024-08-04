@@ -1,0 +1,273 @@
+
+
+.header{
+    height:55px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between; /*spread teh divs evenly  along the container*/
+
+    /*this is how we fix position at the top of the page
+    the header will be always visible. scroll with the page. 
+    */
+
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    /* no nedd to add bottom. becasue we have height
+    */
+
+    /*notice after adding the position fixed, you lost background color. 
+    you didnot lose color. the header flexbox never had color to begin with. 
+    it was taking sapce at the top. and the background happened to be white.;*/
+
+    background-color:white;
+
+    /*border adding to bottom only.
+    border-bottom:1px solid rgb(196,196,196);*/
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(196,196,196);
+
+    z-index:9999;
+
+
+}
+
+.left-section{
+
+    display:flex; /* this is a nested flexbox. flexbox only affects teh top container. */
+    align-items:center;/*vertically center the content inside the div*/
+
+}
+
+.middle-section{
+    
+    flex:1;  /*give it the ability to grow and stretch with screen size*/
+    
+    /* adding some space break left and right of the search bar*/
+    margin-left:70px;
+    margin-right:35px;
+
+    /* we dont want the search to stretch infinitely. we limit it by*/
+    max-width: 500px;
+
+
+    /*Flexbox can be NESTED*/
+    /* We also want the middle section to be aligned nicely.*/
+    /*so wea are making it a flex box*/
+
+    display:flex;
+    align-items: center;   
+
+}
+
+.last-section{
+    
+    width:180px;
+
+    /*Flexbox can be NESTED*/
+    /* We also want the LAST/RIGHT section to be aligned nicely.*/
+    /*so wea are making it a flex box*/
+    display:flex;
+    align-items: center; 
+    justify-content: space-between;   /*this will put everything on one line, and spread out evenly from there.*/
+
+    margin-right:20px;
+
+    /*flexbox shrink elements when screen size goes down.*/
+    /*prevent this byusing flex-shrink:0;*/
+
+    flex-shrink: 0; /* 0 means dont shrink*/
+
+}
+
+
+/* ICONS */
+
+.hamberger-menu{
+    height:20px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.youtube-logo{
+    height:20px;
+}
+
+.upload-icon{
+    height:24px;
+}
+
+.youtube-apps-icon{
+    height:24px;
+}
+
+.notifications-icon{
+    height:24px;
+
+    
+}
+
+.my-channel-icon{
+    height:32px;
+    border-radius:16px;
+}
+
+
+
+/* Search Bar -------------*/
+.search-bar{
+    flex:1; /*we want this to take most of the page. buttons  have fixed sizes so they will not overlap*/
+    height:36px;
+    font-size:16px; /*the size is for what we are writing inside the box*/
+    border-width:1px;
+    border-style:solid;
+    border-color:rgb(196,196,196);
+    border-radius:2px;
+    
+    box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+
+    /*This only works beacause, it is in a flexbox. the width is already set by flex:1*/
+    /* so this width:0; is only removing the default width.*/
+    width:0; 
+}
+
+.search-bar::placeholder{
+    font-family:Roboto,Arial;
+    font-size:16px;
+    padding-left: 12px;
+}
+
+
+/* Buttons*/
+
+.search-button{
+    height:40px;
+    width:66px;
+    background-color: rgb(240,240,240);
+    border-width:1px;
+    border-style: solid;
+    border-color:rgb(196,196,196);
+    border-radius:2px;
+
+    margin-left:-1px; /* negetive margin substracts space, and pulls the element on the specified side. */
+    margin-right:10px;
+
+
+   
+}
+.search-icon{
+    height:25px;
+    
+}
+
+.voice-search-icon{
+    height:24px;
+    
+}
+
+.voice-search-button{
+    height:40px;
+    width: 40px;
+    border-radius:40px;
+    border:none;
+
+    background-color:rgb(245,245,245);
+    
+}
+
+
+
+/* NUMBER OF noptification/ red 3 on the header/*/
+
+.notifications-container{
+    /*changed the position to relative becasuse of the notification count. which is absolute*/
+    position:relative;
+}
+
+.notifications-count{
+    position:absolute;
+    top:-2px;
+    right:-5px; /* - negetive pixels takes us beyond the border. if we want to cross the edge.*/
+
+    background-color:rgb(200,0,0);
+    color:white;
+    
+    font-family:Roboto,Arial;
+    font-size:11px;
+
+    padding-left:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-right:5px;
+
+    border-radius: 10px;
+}
+
+
+/* TOOLTIP */
+
+.search-button,
+.voice-search-button,
+.upload-icon-container{
+     /*This is for the tooltip. Tooltip is a div which we will make absolute to position it precisely
+    Thus we have top make the  buttons relative*/
+    position:relative;
+
+    /*to align the tooltip nicely*/
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+/*tooltip searchbutton er bhitore*/
+
+.search-button .tooltip, 
+.voice-search-button .tooltip,
+.upload-icon-container .tooltip{
+    position:absolute;
+    background-color:gray;
+    color:white;
+    padding-top: 4px;
+    padding-bottom:4px;
+    padding-left:8px;
+    padding-right:8px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-family:Roboto,Arial;
+    
+    bottom:-30px;
+
+    transition:0.15s;
+
+
+    /*WE want to see this tooltip ONLY when we hover over it.
+    
+    THE TRICK is that we will make it visible by default. so opacity is 0
+    */
+    opacity:0;
+
+
+    /*Now if dont do something, the tooltip becomes visible when we hover over it.*/
+    pointer-events:none;   /*This makes sure that the tooltip becomes visible only when we hover over the button itself*/
+
+    white-space: nowrap;
+}
+
+/*THen to make it visible , we will add opacity 1 on the hover property*/
+
+.search-button:hover .tooltip, 
+.voice-search-button:hover .tooltip,
+.upload-icon-container:hover .tooltip{ /*This line means that we will target tooltip only when we hover over the searchbutton*/
+    opacity:1;
+
+}
+
+
+
+
+
+

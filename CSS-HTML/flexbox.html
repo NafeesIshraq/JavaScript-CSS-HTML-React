@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Flexbox Practice</title>
+    <style>
+        body{
+            padding-bottom:500px;
+        }
+
+        .css-flexbox1{
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+        }
+
+        .css-flexbox2{
+            margin-top:40px;   /* add some space above the second box */
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+        }
+
+        .css-flexbox3{
+            margin-top:40px;   /* add some space above the second box */
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+        }
+
+
+            /*practice create header*/
+        .css-flexbox4{
+            margin-top:40px;   /* add some space above the second box */
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+            height:70px;
+            border-width:2px;
+            border-color: gray;
+            border-style:solid;
+
+            justify-content: center;
+
+        }
+
+        .css-flexbox5{
+            margin-top:40px;   /* add some space above the second box */
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+            height:70px;
+            border-width:2px;
+            border-color: gray;
+            border-style:solid;
+
+            justify-content: space-between;
+
+        }
+
+        /*vertical alignmnet. Another flexbox property*/
+        .css-flexbox6{
+            margin-top:40px;   /* add some space above the second box */
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+            height:70px;
+            border-width:2px;
+            border-color: gray;
+            border-style:solid;
+
+            justify-content: space-between;
+
+            align-items: start;    /* default value, but you can try others too! */
+
+        }
+
+        .css-flexbox7{
+            margin-top:40px;   /* add some space above the second box */
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+            height:70px;
+            border-width:2px;
+            border-color: gray;
+            border-style:solid;
+
+            justify-content: space-between;
+
+            align-items: end;    /* default value, but you can try others too! */
+
+        }
+
+        .css-flexbox8{
+            margin-top:40px;   /* add some space above the second box */
+            display:flex;  /* make it a flex container */
+            flex-direction:row;   /* the default value for flex-direction is row. It specifies the direction in which the elements will go*/
+
+            height:70px;
+            border-width:2px;
+            border-color: gray;
+            border-style:solid;
+
+            justify-content: space-between;
+
+            align-items: center;    /* default value, but you can try others too! */
+
+        }
+
+    </style>
+
+    </head>
+
+
+    <body>
+
+        <div class = "css-flexbox1">
+            <div style="background-color:lightblue">div1</div>
+            <div style="background-color:lightpink">div2</div>
+        </div>
+
+        <div class = "css-flexbox2">
+            <div style="background-color:lightblue;">div1</div>
+            <div style="background-color:lightpink; flex: 1;">div2</div>
+        </div>
+
+        <div class = "css-flexbox3">
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; flex: 1;">flex 1</div>
+        </div>
+
+        <div class = "css-flexbox3">
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; flex: 1;">flex 1</div>
+            <div style="background-color:lightblue; flex: 2;">flex 2</div>
+        </div>
+        <p style="display:inline-block; margin-bottom:0;">See how i changed the order of teh element but their property did not change. grid cannont do that</p>
+        <div class = "css-flexbox3">
+            
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; flex: 2;">flex 2</div>
+            <div style="background-color:lightblue; flex: 1;">flex 1</div>
+        </div>
+
+
+        <div class = "css-flexbox4">
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; width:100px;">100px</div>
+            <div style="background-color:lightblue; width:100px;">100px</div>
+        </div>
+
+        <div class = "css-flexbox5">
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; width:100px;">100px</div>
+            <div style="background-color:lightblue; width:100px;">100px</div>
+        </div>
+
+        <div class = "css-flexbox6">
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; width:100px;">100px</div>
+            <div style="background-color:lightblue; width:100px;">100px</div>
+        </div>
+
+        <div class = "css-flexbox7">
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; width:100px;">100px</div>
+            <div style="background-color:lightblue; width:100px;">100px</div>
+        </div>
+
+        <div class = "css-flexbox8">
+            <div style="background-color:lightblue; width:100px;">100px</div>
+            <div style="background-color:lightpink; width:100px;">100px</div>
+            <div style="background-color:lightblue; width:100px;">100px</div>
+        </div>
+
+    </body>
+</html>

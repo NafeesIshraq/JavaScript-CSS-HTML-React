@@ -1,0 +1,139 @@
+<!DOCTYPE html> 
+<html>
+<head>
+
+
+    
+
+    <script>
+        //To force a paragrapgh to the next line, we can just add set a width. 
+        //line-height adds space between the lines. 
+
+    </script>
+    <style>
+
+        /* Notice how all paragraphs have some stuff in common. For example the font style. */
+        /* S we can just target all paragraphs by writing p{}. This is called CSS Selectors. */
+        /*We also had to clean up all default margin from all paragrapgh manually. 
+        So we will add all of those here instead. saves so much work*/
+
+        p{
+        font-family: Arial;
+        margin-top:0;
+        margin-bottom: 0; 
+        }
+
+
+
+
+        .video-title{
+            /*font-family: Arial; /* i dont need this anymore it is in p{}*/
+            font-size: 20px;
+            font-weight: bold;
+            width:350px;
+            line-height: 30px;
+            margin-bottom:5px;
+        }
+
+        .video-stats{
+        /*font-family: Arial; /* i dont need this anymore it is in p{}*/
+            font-size: 14px;
+            color: rgb(96,96,96);
+            margin-top:0; /* i dont need this anymore it is in p{}*/
+
+            margin-bottom: 20px;
+        }
+
+        .video-author{
+            /*font-family: Arial; /* i dont need this anymore it is in p{}*/
+            font-size:14px;
+            color: rgb(96,96,96);
+
+            margin-top: 0;/* i dont need this anymore it is in p{}*/
+
+            margin-bottom:20px;
+        }
+
+        .video-description{
+            /*font-family: Arial; /* i dont need this anymore  it is in p{}*/
+            font-size:14px;
+            color: rgb(96,96,96);
+            WIDTH:350PX; /* This is needed for text wrapping to work . ALSO NOTICE HOW CAPITILAZIATION DOES NOT MATTER*/
+            line-height: 22px; /* This is needed for adding space between lines.*/
+
+            margin-top:0;/* i dont need this anymore it is in p{}*/
+
+            margin-bottom: 30px;
+        }
+
+        .apple-text{
+            /*i dont have to add font-family and margin 0 anymore */
+            font-size:14px;
+            background-color: #e34140;
+            color:white;
+            text-align:center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            
+        }
+
+
+        .span-shop-link{
+            cursor:pointer;
+        }
+        .span-shop-link:hover {
+            
+            text-decoration:underline;
+        }
+
+
+
+
+
+        .just-test{
+            margin-top:300px;
+        }
+        .span-example{
+            color:red;
+        }
+        .span-example:hover{
+            text-decoration: overline underline;
+            cursor:pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <p class = "video-title">
+        Talking tech and AI with Google CEO Sundar Pichai
+    </p>
+    
+    <p class = "video-stats">
+        3.4M views &#183; 6 months ago
+    </p>
+
+    <p class ="video-author"> 
+        Marques Brownlee &#10003; 
+    </p>
+
+    <p class = "video-description">
+        Talking tech and AI on the heels of Google I/o. Also a daily driver phone reveal from Google CEO. Shout out to Sundar. 
+
+    </p>
+
+    <p class = "apple-text">
+        Shop early for the best selection of holiday favourites. <span class="span-shop-link">Shop now</span> >
+    </p>
+
+
+    <p class ="just-test">
+        Shop <u>early</u> for the <strong>best selection of holiday</strong> favourites. <span class="span-example">Shop now</span> >
+    </p>
+
+</body>
+
+
+
+
+</html>

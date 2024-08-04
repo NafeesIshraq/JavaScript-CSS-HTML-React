@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .subscribe-Button{
+                background-color:rgb(201, 0, 0);
+                color:white;
+                border:none;
+                border-radius: 2px;
+
+                padding-top:10px;
+                padding-bottom: 10px;
+                padding-left: 16px;
+                padding-right: 10px;
+
+                cursor:pointer;
+
+                margin-right:8px;
+                transition: opacity 0.15s;
+
+                vertical-align: top;
+            }
+
+            /* we add .classname:hover{} to  make the button change when hovered */
+
+            .subscribe-Button:hover{
+                opacity:0.75;
+            }
+            /* we add .classname:active{} to  make the button change when clicked
+            It is not permanant. takes affect for a second. we still need css and javascript to change button appearance after it is clicked
+            */
+            .subscribe-Button:active{
+                opacity: 0.5;
+            }
+
+
+            /* hover and active are called pseudo classes*/
+
+            .join-Button{
+                background-color: white;
+                border-color: rgb(41, 118, 211);
+                border-style: solid;
+                border-width: 1px;
+                color:rgb(41, 118, 211);
+
+
+                padding-top:9px;
+                padding-bottom: 9px;
+                padding-left: 16px;
+                padding-right: 16px;
+
+                border-radius: 2px;
+                cursor:pointer;
+                transition: background-color  0.15s, color .15s;
+            }
+
+            .join-Button:hover{
+                background-color:rgb(41, 118, 211);
+                color:white;
+            }
+
+            .join-Button:active {
+                opacity:0.7;
+            }
+
+
+            .tweet-Button{
+                background-color: rgb(29,155,240);
+                border:none;
+                height:36px;
+                width:70px;
+                border-radius: 18px;
+                font-weight: bold;
+                font-size:15px;
+                color: white;
+                cursor:pointer;
+                margin-left: 8px;
+
+                transition: box-shadow 0.15s;
+
+                vertical-align: top;
+            }
+
+            .tweet-Button:hover{
+                box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <button class="subscribe-Button">Subscribe</button>
+        <button class ="join-Button">JOIN</button>
+        <button class ="tweet-Button">Tweet</button>
+
+    </body>
+
+</html>

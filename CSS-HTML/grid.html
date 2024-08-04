@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<style>
+
+    .css-grid1{
+        display:grid;
+        grid-template-columns: 100px 100px;
+    }
+
+    .css-grid2{
+        margin-top: 100px;
+        display:grid;
+        grid-template-columns: 100px 100px 200px;
+    }
+
+    .css-grid3{
+        margin-top: 100px;
+        display:grid;
+        grid-template-columns: 100px 100px 200px;
+    }
+
+    .css-grid4{
+        margin-top: 100px;
+        display:grid;
+        grid-template-columns: 100px 1fr;
+    }
+
+    .css-grid5 {
+        margin-top: 100px;
+        display:grid;
+        grid-template-columns: 100px 1fr 2fr;
+    }
+
+
+    .css-grid6 {
+        margin-top: 100px;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;  /*gives equal space. */
+        column-gap:20px;   /*adds gap between columns*/
+        row-gap:30px;     /*adds gap between rows*/
+    }
+
+</style>
+
+</head>
+
+
+<body style="padding-bottom:500px">
+
+    <div class = "css-grid1">
+        <div style="background-color:lightblue">div1</div>
+        <div style="background-color:lightpink">div2</div>
+    </div>
+
+    <div class = "css-grid2">
+        <div style="background-color:lightblue">100px</div>
+        <div style="background-color:lightpink">100px</div>
+        <div style="background-color:lightblue">200px</div>
+    </div>
+
+    <div class = "css-grid3">
+        <div style="background-color:lightblue">100px</div>
+        <div style="background-color:lightpink">100px</div>
+        <div style="background-color:lightblue">200px</div>
+        <div style="background-color:lightpink">100px</div>
+    </div>
+
+    <div class = "css-grid4">
+        <div style="background-color:lightblue">100px</div>
+        <div style="background-color:lightpink">1fr</div>
+    </div>
+
+    <div class = "css-grid5">
+        <div style="background-color:lightblue">100px</div>
+        <div style="background-color:lightpink">1fr</div>
+        <div style="background-color:lightblue">2fr</div>
+    </div>
+
+
+    <div class = "css-grid6">
+        <div style="background-color:lightblue; height:200px;">1fr</div>
+        <div style="background-color:lightpink; height:200px">1fr</div>
+        <div style="background-color:lightblue; height:200px">1fr</div>
+        <div style="background-color:lightpink; height:200px">1fr</div>
+        <div style="background-color:lightblue; height:200px">1fr</div>
+        <div style="background-color:lightpink; height:200px">1fr</div>
+    </div>
+
+</body>
+
+
+
+</html>
