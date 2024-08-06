@@ -84,7 +84,7 @@ const person ={
 
 
 const name= person.name
-const age = person.age
+const age3 = person.age
 const isMarried = perrson.isMarried
 
 // but we acn easily do this instead

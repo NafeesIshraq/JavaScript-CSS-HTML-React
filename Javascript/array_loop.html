@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html> 
+
+<style>
+   
+
+</style>
+    
+
+<head>
+    <title>Arrays and loops</title>
+    
+</head>
+
+
+
+<body>
+
+
+
+</body>
+
+
+<script>
+   const myArray=[10,20,30]; //arrays can be written on multiple lines too. 
+
+   console.log(myArray); //printing the array
+
+   console.log(myArray[0]); //prints first value from array  (index starts at 0)
+   
+   myArray[0] = 50;  //update a value of an array at index 0. so first element/ 
+
+   console.log(myArray[0]);
+
+   myArray2 = [1, 'hello', true, {name:'nafees'}, [1,2]]; // arrays are an object. that is why something like name:'nafees' works. a property value just like an object. 
+
+   console.log(typeof myArray2);  //tells me what type an array is. it is an object/ 
+
+   console.log(Array.isArray([1,2])); //returns true if it is an array otherwise false
+
+
+
+
+   //since arrays are objects , we can use different methods. 
+
+    //length
+   console.log(myArray2.length);  //tells me the length of an array
+
+    //.push
+   myArray.push(100);    //adds a value at the last. 
+   console.log(myArray);
+
+
+   //.splice
+   myArray.splice(0,1);     //removes one item starting from index 0 and removes 1 item.
+   console.log(myArray);    //splice removed one element starting at index 0. in this case it removed 50. 
+    //splice takes two numbers . first is the index where i want it to start. then second number is how many i want to remove. 
+
+
+    //loops -----------------------------------------
+
+    let variable1= 1;
+    while (variable1<=5){         //loop creates scope. variable created inside the loop stays in the loop/
+        console.log(variable1);
+        variable1++;
+    }
+
+    for(let i = 6; i<=10; i++){
+        console.log(i);           //this will print numbers from 6 to 10
+    }
+
+
+    //we will use for loop for all standard loops
+    //use while only for non standard loops
+
+    let random = 0;
+
+    while (random < 0.5){
+        random= Math.random();      //generates a random number between 0-1
+
+    }
+    console.log(random);            //prints out the random number
+
+
+    //looping through an arary
+
+    const toDoList = ['make dinner','wash dishes','kutta pitamu']
+
+    for(let index =0; index <toDoList.length; index++){ //last index is 1  less than length of array because arrays start with zero
+        console.log(toDoList[index]);       //using brackets we can access elements of array by their index.
+    }
+
+    //ACCUMULATOR PATTERN
+
+    //we have an array, how to calculate total of all numbers
+     
+    let total = 0;
+    const num = [1,2,3,4,76];
+
+    for(let y =0; y<num.length; y++){
+        let number = num[y];
+        total = total + number;
+
+        //we can simply write 
+        //total =+ num[y];   this is same as above line
+    }
+    console.log(total);
+
+    for(let z =0; z<num.length;z++){
+        let double = num[z] *2;
+        num[z]=double;             //add new element in array at position z with value double
+    }
+    console.log(num)                 //it prints original array and modified array together
+
+    const numtrippled=[];
+
+    for(let j =0; j<num.length; j++){
+        //let tripple = num[j] *3;
+        //numtrippled.push(tripple);     //adding each tripled number into another array called numtrippled using
+
+        numtrippled.push(num[j]*3);
+    }
+    console.log(numtrippled); 
+
+
+        //like objects , arrays are references too. 
+    //remember,. \\
+
+    const array1 = [1,2,3,4];
+    const array2 = array1; //array 1 and two is  pointing to the same memory location.
+
+    //so even if  we change one of them all will be changed .
+    array2.push(4);
+    console.log(array2);
+    console.log(array1);
+
+    //now we may not  want that so how can we copy an array ?
+    // we will use slice. 
+
+    //*********** SLICE *****************//
+
+    const array3 = array1.slice();
+
+    //now a copy of array 1 will be stored in a diffrent memory location;. 
+
+    array3.push(6);
+    console.log(array1);
+    console.log(array3);
+
+
+    //shorthand operators for arrays. 
+    //destructuring
+
+    const array4 = [1,2,3,4,5,6]
+
+    // we could use the following method to directly store a value of an arary. 
+
+    const [firstvalue, secondvalue, thridvalue] = [1,2,3];
+    console.log(firstvalue); //output = 1 
+    console.log(secondvalue) ;// output= 2
+    console.log(thridvalue)   ;// output= 3
+
+
+
+
+
+    // /////////////// BREAK ____________________________ CONTINUE /////////////////////
+
+    for (let i = 0 ; i < 10 ;i++){
+
+        if(i == 2){
+            continue; //THis  statement is used when you want to skip some specific iteration. . it will skip 2.
+        };
+        console.log(i);
+        if(i == 5){
+            break; // this statement will stop the loop from executing further
+        };
+        
+    }
+
+
+    //same thing in while loop
+
+    let i = 1
+
+    while (i<=10){
+        if (i%3 === 0){
+            i++;             //In a while loop, increments are done manually. 
+                            //whithout this it will always be looping
+            continue;
+        }
+
+
+        console.log(i);
+        i++;
+    }
+
+
+    //_---------------- loops with funstions  ----------------
+
+    function doubleArray(num){
+        const double = [];
+
+        for(let z =0; z<num.length;z++){
+            let double = num[z] *2;
+            num[z]=double;             //add new element in array at position z with value double
+        }
+        console.log(num)                 //it prints original array and modified array together
+
+       
+    }
+
+    console.log(doubleArray([1,2,3]));               //calling the function passing an array [1,2,3] as argument
+
+
+    const spam = ['cat','bat','rat','elephant']
+
+    for(let i=0;i<spam.length;i++){
+        let position = 0;
+        if (spam[i]=== 'rat'){
+            console.log(i +1);
+    };     //prints the index of rat which is 2
+    }
+
+
+</script>
+
+
+
+
+</html>

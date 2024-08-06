@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html> 
+
+<style>
+   
+
+</style>
+    
+
+<head>
+    <title>RockPaperScisors</title>
+    
+</head>
+
+
+
+<body>
+<p>Rock Paper Scisors</p>
+<button onclick="numberGenerator(event)" class="button"  name = "Rock">Rock</button>
+<button onclick="numberGenerator(event)" class="button2" name = "Paper">Paper</button>
+<button onclick="numberGenerator(event)" class="button3" name = "Scisors">Scisors</button>
+
+
+</body>
+
+
+<script>
+    function numberGenerator(event){
+        randomNumber=Math.random();
+
+        let computer = '';
+        let button = event.target.name;
+        let result = '';
+
+        if (randomNumber >= 0 &&  randomNumber < 0.33) { computer='Rock';
+        }else if (randomNumber >= 0.33 & randomNumber <0.67 ){
+            computer='Paper';
+        }else{
+            computer='Scisors';
+        }    
+
+        if (computer === 'Rock' && button === 'Rock'){
+            result = 'Tie';
+        }else if (computer === 'Paper' && button === 'Scisors'){
+            result = 'You Win!';
+        }else if  (computer==='Scisors' && button==='Rock'){
+            result = 'you Win!';
+        }else if (computer === 'Paper' && button ==='Paper'){
+            result = 'Tie';
+        }else if (computer === 'Scisors' && button === 'Scisors'){
+            result = 'Tie';
+        }else if (computer === 'Rock' && button === 'Paper'){
+            result = 'You Win!';
+        }else{result = 'You lose!'}
+
+
+        alert (`you picked ${button} computer picked ${computer}. So ${result}`);
+        //remeber it is ` not ' ' when you are using ${}
+        
+    }
+
+
+    
+
+</script>
+
+
+
+
+</html>
